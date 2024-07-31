@@ -11,7 +11,7 @@ export default function Header() {
   const handleLogout = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8080/auth/logout",
+        "https://shortlypro.vercel.app/auth/logout",
         {},
         {
           headers: {
