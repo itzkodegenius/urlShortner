@@ -16,7 +16,7 @@ app.use(
 );
 
 app.get('/', (req, res)=>{
-  res.send('Hellooo')
+  res.json('Hellooo')
 })
 app.use(cookieParser());
 app.use(express.json());
