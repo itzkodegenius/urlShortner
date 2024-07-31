@@ -13,7 +13,7 @@ const handleGenerateShortURL = async (req, res) => {
       });
     }
 
-    const shortId = nanoid(4);
+    const shortId = nanoid(3);
     const qrCodeOptions = {
       color: {
         dark: '#808080',

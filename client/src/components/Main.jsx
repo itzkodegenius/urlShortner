@@ -54,7 +54,7 @@ export default function Main() {
       return;
     }
 
-    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user"))
     try {
       const res = await axios.post(
         "http://localhost:8080/url/shortUrl",
@@ -63,7 +63,7 @@ export default function Main() {
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${user.token}`,
           },
           withCredentials: true,
         }

@@ -30,11 +30,11 @@ const userRegister = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-
     const user = await User.create({
       username,
       email,
       password: hashedPassword,
+      
     });
 
     const isUserCreated = await User.findById(user._id);
@@ -89,11 +89,11 @@ const userLogin = async (req, res) => {
       httpOnly: true,
       secure: true,
     };
-
+    user.token = token
+    await user.save()
     return res.cookie('token', token, option).json({
       message: 'User logged in successfully',
       user: user,
-      token,
     });
   } catch (error) {
     return res.status(500).json({
@@ -136,4 +136,4 @@ const getUser = async (req, res) => {
   }
 };
 
-export { userRegister, userLogin, userLogout, getUser};
+export { userRegister, userLogin, userLogout, getUser };

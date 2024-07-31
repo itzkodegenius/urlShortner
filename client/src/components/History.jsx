@@ -11,7 +11,7 @@ export default function History() {
   const { history, setHistory, token, loginModal } = useContext(contextApi);
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const fetchHistory = async () => {
     try {
@@ -78,6 +78,16 @@ export default function History() {
       setLoading(false);
       setModal(true);
     }
+  };
+
+  const handleCopy = (text) => {
+    const tempInput = document.createElement("input");
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    alert("Text copied: " + text);
   };
 
   const handleRedirectToOrignalUrl = async (shortId) => {
@@ -149,12 +159,31 @@ export default function History() {
                 return (
                   <tr key={index}>
                     <td
-                      onClick={() => handleRedirectToOrignalUrl(item.shortId)}
                       className="table-row"
                       scope="row"
                       style={{ cursor: "pointer" }}
                     >
                       {`http://shortly.com/${item.shortId}`}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1.5em"
+                        height="1.5em"
+                        viewBox="0 0 24 24"
+                        className="ms-3"
+                        style={{cursor : 'pointer'}}
+                        onClick={() => handleCopy(`http://shortly.com/${item.shortId}`)}
+                      >
+                        <g
+                          fill="none"
+                          stroke="#F0F4FE"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                        >
+                          <path d="M18.327 7.286h-8.044a1.932 1.932 0 0 0-1.925 1.938v10.088c0 1.07.862 1.938 1.925 1.938h8.044a1.932 1.932 0 0 0 1.925-1.938V9.224c0-1.07-.862-1.938-1.925-1.938"></path>
+                          <path d="M15.642 7.286V4.688c0-.514-.203-1.007-.564-1.37a1.918 1.918 0 0 0-1.361-.568H5.673c-.51 0-1 .204-1.36.568a1.945 1.945 0 0 0-.565 1.37v10.088c0 .514.203 1.007.564 1.37c.361.364.85.568 1.361.568h2.685"></path>
+                        </g>
+                      </svg>
                     </td>
 
                     <td className="table-row">

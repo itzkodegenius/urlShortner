@@ -36,7 +36,6 @@ export default function Header() {
 
 
   const loginUser = JSON.parse(localStorage.getItem("user"))
-  console.log(loginUser)
   return (
     <>
       <Container className="w-100 d-flex align-items-center justify-content-between mx-4 mt-4">
