@@ -21,7 +21,7 @@ export default function MobileView() {
 
   const fetchHistory = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/auth/urls", {
+      const res = await axios.get("https://shortlypro.vercel.app/auth/urls", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -65,7 +65,7 @@ export default function MobileView() {
     setLoading(true);
     const token = localStorage.getItem("token");
     try {
-      await axios.delete(`http://localhost:8080/auth/delete/${shortId}`, {
+      await axios.delete(`https://shortlypro.vercel.app/auth/delete/${shortId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -84,7 +84,7 @@ export default function MobileView() {
   };
 
   const handleRedirectToOriginalUrl = async (shortId) => {
-    window.open(`http://localhost:8080/url/${shortId}`, "_blank");
+    window.open(`https://shortlypro.vercel.app/url/${shortId}`, "_blank");
     await fetchHistory();
   };
 
