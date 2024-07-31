@@ -91,7 +91,7 @@ export default function History() {
   };
 
   const handleRedirectToOrignalUrl = async (shortId) => {
-    window.open(`http://localhost:8080/url/${shortId}`, "_blank");
+    window.open(`https://shortlypro.vercel.app/url/${shortId}`, "_blank");
 
     await fetchHistory();
   };
