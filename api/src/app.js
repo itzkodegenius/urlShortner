@@ -14,6 +14,10 @@ app.use(
     credentials: true,
   })
 );
+
+app.get('/', (req, res)=>{
+  res.send('Hellooo')
+})
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
