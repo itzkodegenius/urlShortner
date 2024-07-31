@@ -32,7 +32,7 @@
 
     const fetchHistory = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/auth/urls", {
+        const res = await axios.get("https://shortlypro.vercel.app/auth/urls", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
