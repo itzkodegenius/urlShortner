@@ -15,7 +15,7 @@ export default function History() {
 
   const fetchHistory = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/auth/urls", {
+      const res = await axios.get("https://shortlypro.vercel.app/auth/urls", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -60,7 +60,7 @@ export default function History() {
     const token = localStorage.getItem("token");
     try {
       const res = await axios.delete(
-        `http://localhost:8080/auth/delete/${shortId}`,
+        `https://shortlypro.vercel.app/auth/delete/${shortId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
