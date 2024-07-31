@@ -44,7 +44,7 @@ export default function Login() {
       const password = data.get("password");
 
       const res = await axios.post(
-        "http://localhost:8080/auth/login",
+        "https://shortlypro.vercel.app/auth/login",
         { username, password },
         { withCredentials: true }
       );
