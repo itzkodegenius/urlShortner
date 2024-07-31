@@ -14,7 +14,7 @@
       const autoLogin = async () => {
         if (token) {
           try {
-            const res = await axios.get("http://localhost:8080/auth/user", {
+            const res = await axios.get("https://shortlypro.vercel.app/auth/user", {
               headers: {
                 Authorization: `Bearer ${token}`,
               },
