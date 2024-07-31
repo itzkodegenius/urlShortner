@@ -53,7 +53,7 @@ export default function Register() {
 
       console.log(username, email, password);
 
-      const res = await axios.post("http://localhost:8080/auth/register", {
+      const res = await axios.post("https://shortlypro.vercel.app/auth/register", {
         username,
         email,
         password,
