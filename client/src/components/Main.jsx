@@ -57,7 +57,7 @@ export default function Main() {
     const user = JSON.parse(localStorage.getItem("user"))
     try {
       const res = await axios.post(
-        "http://localhost:8080/url/shortUrl",
+        "https://shortlypro.vercel.app/url/shortUrl",
         {
           redirectURL: url,
         },
